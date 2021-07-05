@@ -1,4 +1,4 @@
-# The SiyaBuddy Recycling App
+# The Untum Waste Collection App
 
 ## Quick start
 ### Step 1: Set up a Google Cloud Platform account
