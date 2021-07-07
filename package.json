@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "14.x",
+    "node": "14.x"},
   "scripts": {
     "build": "babel app/static/js -d app/static/js && sass --load-path=node_modules/bootstrap/scss app/static_src/bootstrap.scss app/static/lib/bootstrap/bootstrap.min.css --style compressed --no-source-map"
   },
