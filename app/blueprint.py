@@ -56,8 +56,15 @@ def create_app(config_object: AppConfig) -> Flask:
 
     app.url_map.strict_slashes = False
     app.config.from_object(config_object)
-    app.config['SQLALCHEMY_DATABASE_URI'] = config_object.SQLALCHEMY_DATABASE_URI
-    app.config['SQLALCHEMY_BINDS'] = getattr(config_object, 'SQLALCHEMY_BINDS', {})
+    if not app.config.get('SQLALCHEMY_DATABASE_URI'):
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///default.db'
+    if not app.config.get('SQLALCHEMY_BINDS'):
+        app.config['SQLALCHEMY_BINDS'] = {}
+    if not app.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'):
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+            'pool_size': 10,
+            'max_overflow': 20
+        }
 
     login_manager.init_app(app)
     db.init_app(app)
@@ -65,7 +72,6 @@ def create_app(config_object: AppConfig) -> Flask:
     sess.init_app(app)
     socketio.init_app(app)
 
-    app.session_interface.db.create_all()
     with app.app_context():
         db.create_all()
 
