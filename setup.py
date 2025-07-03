@@ -2,9 +2,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="heroku_app",
+    name="waste_collection_app",
     version="0.1.0",
-    author="Your Name",
+    author="Nomuntu Ndhlovu",
     description="A Flask-based web application for deployment on Heroku",
     packages=find_packages(),
     include_package_data=True,
