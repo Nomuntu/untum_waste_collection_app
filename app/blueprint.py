@@ -23,11 +23,6 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://u3e45j6sr7bg30:p22c3db9b066639d40bc0191a61d668880c84f52998f4cf5345c97a94e07ed874@cd7f19r8oktbkp.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/db2ie3q7cgm6pp'
-    if not app.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'):
-        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-            'pool_size': 10,
-            'max_overflow': 20
-        }
     db = SQLAlchemy(app)
     migrate = Migrate(app, db)
 
@@ -62,13 +57,14 @@ def create_app(config_object: AppConfig) -> Flask:
     app.url_map.strict_slashes = False
     app.config.from_object(config_object)
 
-    login_manager.init_app(app)
-    db.init_app(app)
-    migrate.init_app(app)
-    sess.init_app(app)
-    socketio.init_app(app)
+    # Conditionally apply SQLAlchemy engine options if not using SQLite
+    if not app.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'):
+        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+            'pool_size': 10,
+            'max_overflow': 20
+        }
 
-    app.session_interface.db.create_all()
+    login_manager.init_app(app)
     with app.app_context():
         db.create_all()
 
