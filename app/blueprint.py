@@ -21,12 +21,12 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config.Config')
+    app.config.from_object('config.Config')
 
-    db.init_app(app)
-    migrate.init_app(app, db)
+    db.init_app(app)
+    migrate.init_app(app, db)
 
-    return app
+    return app
 
 import app.config as config
 from app.app_config import AppConfig
