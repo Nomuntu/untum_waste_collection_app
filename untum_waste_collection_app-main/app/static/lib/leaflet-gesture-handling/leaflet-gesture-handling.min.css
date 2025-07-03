@@ -1,0 +1,24 @@
+/*
+MIT License
+
+Copyright (c) 2018 elmarquis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+@-webkit-keyframes leaflet-gestures-fadein{0%{opacity:0}100%{opacity:1}}@keyframes leaflet-gestures-fadein{0%{opacity:0}100%{opacity:1}}.leaflet-container:after{-webkit-animation:leaflet-gestures-fadein .8s backwards;animation:leaflet-gestures-fadein .8s backwards;color:#fff;font-family:Roboto,Arial,sans-serif;font-size:22px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:15px;position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:461;pointer-events:none}.leaflet-gesture-handling-scroll-warning:after,.leaflet-gesture-handling-touch-warning:after{-webkit-animation:leaflet-gestures-fadein .8s forwards;animation:leaflet-gestures-fadein .8s forwards}.leaflet-gesture-handling-touch-warning:after{content:attr(data-gesture-handling-touch-content)}.leaflet-gesture-handling-scroll-warning:after{content:attr(data-gesture-handling-scroll-content)}
