@@ -44,3 +44,7 @@ ADMIN_NAME = os.environ['ADMIN_NAME']
 ADMIN_PHONE = os.environ['ADMIN_PHONE']
 # Default password of the "admin" account
 ADMIN_INITIAL_PASSWORD = os.environ['ADMIN_INITIAL_PASSWORD']
+
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///default.db')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
