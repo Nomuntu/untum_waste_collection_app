@@ -56,15 +56,16 @@ def create_app(config_object: AppConfig) -> Flask:
 
     app.url_map.strict_slashes = False
     app.config.from_object(config_object)
-
-    # Conditionally apply SQLAlchemy engine options if not using SQLite
-    if not app.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'):
-        app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-            'pool_size': 10,
-            'max_overflow': 20
-        }
+    app.config['SQLALCHEMY_DATABASE_URI'] = config_object.SQLALCHEMY_DATABASE_URI
+    app.config['SQLALCHEMY_BINDS'] = getattr(config_object, 'SQLALCHEMY_BINDS', {})
 
     login_manager.init_app(app)
+    db.init_app(app)
+    migrate.init_app(app)
+    sess.init_app(app)
+    socketio.init_app(app)
+
+    app.session_interface.db.create_all()
     with app.app_context():
         db.create_all()
 
