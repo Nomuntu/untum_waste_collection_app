@@ -63,7 +63,6 @@ def create_app(config_object: AppConfig) -> Flask:
     sess.init_app(app)
     socketio.init_app(app)
 
-    app.session_interface.db.create_all()
     with app.app_context():
         db.create_all()
 
