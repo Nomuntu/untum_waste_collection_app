@@ -1,4 +1,2 @@
-
-web: gunicorn --gunicorn blueprint.py:create_app()
+web: gunicorn --worker-class eventlet -w 1 app.index:app --log-file -
 release: flask db upgrade
-
