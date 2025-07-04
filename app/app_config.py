@@ -1,5 +1,5 @@
-import os
 
+import os
 
 class AppConfig:
     TESTING = False
@@ -7,8 +7,11 @@ class AppConfig:
     SESSION_TYPE = 'sqlalchemy'
     SESSION_USE_SIGNER = True
 
+class DevelopmentConfig(AppConfig):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+    SECRET_KEY = 'dev-secret-key'
 
 class ProductionConfig(AppConfig):
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL'].replace("postgres://", "postgresql://",
-                                                                 1) if 'DATABASE_URL' in os.environ else None
-    SECRET_KEY = os.environ['FLASK_SECRET']
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///prod.db').replace("postgres://", "postgresql://", 1)
+    SECRET_KEY = os.environ.get('FLASK_SECRET', 'prod-secret-key')
