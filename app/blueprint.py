@@ -850,3 +850,8 @@ def schedule_trip(trip_id):
 
     db.session.commit()
     return "", 204
+
+
+__all__ = ['create_app', 'db', 'migrate']
+
+
