@@ -20,18 +20,6 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 migrate = Migrate()
 
-def create_app():
-    app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://u3e45j6sr7bg30:p22c3db9b066639d40bc0191a61d668880c84f52998f4cf5345c97a94e07ed874@cd7f19r8oktbkp.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/db2ie3q7cgm6pp'
-    db = SQLAlchemy(app)
-    migrate = Migrate(app, db)
-
-
-    db.init_app(app)
-    migrate.init_app(app, db)
-
-    return app
-
 import app.config as config
 from app.app_config import AppConfig
 from app.model import *
@@ -850,3 +838,8 @@ def schedule_trip(trip_id):
 
     db.session.commit()
     return "", 204
+
+
+__all__ = ['create_app', 'db', 'migrate']
+
+
