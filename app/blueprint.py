@@ -39,10 +39,14 @@ socketio = SocketIO()
 TZ_INFO = timezone(config.TIMEZONE)
 
 
-def create_app(config_object: AppConfig) -> Flask:
+def create_app(config_object: Optional[AppConfig] = None) -> Flask:
     app = Flask(__name__)
 
     app.url_map.strict_slashes = False
+    
+if config_object is None:
+        from app.app_config import DefaultConfig 
+        config_object = DefaultConfig()
     app.config.from_object(config_object)
     app.config['SQLALCHEMY_DATABASE_URI'] = config_object.SQLALCHEMY_DATABASE_URI
     app.config['SQLALCHEMY_BINDS'] = getattr(config_object, 'SQLALCHEMY_BINDS', {})
