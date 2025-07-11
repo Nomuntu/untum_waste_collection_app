@@ -13,25 +13,6 @@ from flask_login import LoginManager, current_user, login_user, login_required, 
 from flask_session import Session
 from pytz import timezone
 
-from flask import Flask
-from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
-migrate = Migrate()
-
-def create_app():
-    app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://u3e45j6sr7bg30:p22c3db9b066639d40bc0191a61d668880c84f52998f4cf5345c97a94e07ed874@cd7f19r8oktbkp.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/db2ie3q7cgm6pp'
-    db = SQLAlchemy(app)
-    migrate = Migrate(app, db)
-
-
-    db.init_app(app)
-    migrate.init_app(app, db)
-
-    return app
-
 import app.config as config
 from app.app_config import AppConfig
 from app.model import *
@@ -56,8 +37,6 @@ def create_app(config_object: AppConfig) -> Flask:
 
     app.url_map.strict_slashes = False
     app.config.from_object(config_object)
-    app.config['SQLALCHEMY_DATABASE_URI'] = config_object.SQLALCHEMY_DATABASE_URI
-    app.config['SQLALCHEMY_BINDS'] = getattr(config_object, 'SQLALCHEMY_BINDS', {})
 
     login_manager.init_app(app)
     db.init_app(app)
@@ -832,6 +811,7 @@ def get_trip_data(trip_id):
 
     return data, pins
 
+
 @blueprint.route('/api/admin/trip/<int:trip_id>/schedule', methods=['POST'])
 @login_required
 def schedule_trip(trip_id):
@@ -849,5 +829,3 @@ def schedule_trip(trip_id):
 
     db.session.commit()
     return "", 204
-
-__all__ = ['create_app', 'db', 'migrate']
