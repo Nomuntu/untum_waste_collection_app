@@ -26,8 +26,4 @@ with app.app_context():
         admin.phone = config.ADMIN_PHONE
     db.session.commit()
 
-from app.blueprint import create_app
-from app.app_config import AppConfig
-
-app = create_app(AppConfig())
 
