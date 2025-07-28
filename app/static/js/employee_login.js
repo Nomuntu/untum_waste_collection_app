@@ -43,3 +43,4 @@ function validateNotEmpty(inputDiv) {
         return true
     }
 }
+

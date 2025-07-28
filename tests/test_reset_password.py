@@ -34,3 +34,4 @@ def test_reset(testapp, db):
     assert successful(resp)
     new_db_password = Employee.query.get(admin.id).password
     assert bcrypt.checkpw(b"newpassword", new_db_password)
+

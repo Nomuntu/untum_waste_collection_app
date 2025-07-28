@@ -31,3 +31,4 @@ function deleteRow(rowId) {
     $(`#row_${rowId}`).remove()
     delete waste[rowId]
 }
+

@@ -83,3 +83,4 @@ def session(db):
     transaction.rollback()
     connection.close()
     session_.remove()
+

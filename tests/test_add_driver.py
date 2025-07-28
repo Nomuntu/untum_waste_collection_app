@@ -21,3 +21,4 @@ def test_set_password(testapp):
     resp = testapp.post('/login', json={"username": "driver2", "password": "hunter2", "phone": "0563215555"})
     assert successful(resp)
     assert b"/driver" in resp.data
+

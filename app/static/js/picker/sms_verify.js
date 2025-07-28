@@ -24,3 +24,4 @@ function submitVerification() {
         location.href = res['url']
     })
 }
+

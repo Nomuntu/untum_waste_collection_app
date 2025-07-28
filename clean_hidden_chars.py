@@ -27,3 +27,4 @@ if __name__ == "__main__":
         print("Usage: python clean_hidden_chars.py <file_path>")
     else:
         clean_file_of_hidden_characters(sys.argv[1])
+

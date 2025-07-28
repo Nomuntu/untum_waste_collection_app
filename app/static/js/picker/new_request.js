@@ -125,3 +125,4 @@ function restoreGetLocationButton() {
     getLocationButton.prop('disabled', false)
     getLocationButton.text(getLocationButtonDefaultText)
 }
+

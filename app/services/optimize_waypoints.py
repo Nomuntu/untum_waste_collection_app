@@ -54,3 +54,4 @@ def trip_maps_url(reqs: List[CollectionRequest]) -> str:
 
     return DIRECTIONS_URL_NO_ORIGIN.format(destination, waypoints)
 
+

@@ -166,3 +166,4 @@ $('#delete-request').on('click', _ => {
         location.href = '/admin'
     })
 })
+

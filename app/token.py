@@ -10,3 +10,4 @@ def generate_token(employee_id: int, expiry: datetime, secret: str) -> str:
 
 def verify_token(token: str, secret: str) -> int:
     return jwt.decode(token, secret, algorithms=["HS256"], options=dict(require=["exp"], verify_exp=True))["id"]
+

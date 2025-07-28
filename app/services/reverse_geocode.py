@@ -26,3 +26,4 @@ def reverse_geocode(lat: decimal, lon: decimal) -> Dict:
         return {'suburb': 'Theresapark Ward 5', 'village': 'Theresapark Village', 'city': 'Theresapark',
                 'county': 'Ehlanzeni', 'state': 'Mpumalanga', 'country': 'South Africa', 'country_code': 'za'}
 
+

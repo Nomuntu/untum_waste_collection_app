@@ -161,3 +161,4 @@ The waste management provider's name can be configured by changing both of:
 * `WASTE_MANAGEMENT_PROVIDER_NAME` in `app/config.py` (for SMS notifications)
 * `<title>` in `app/templates/utils/base.html`
 
+

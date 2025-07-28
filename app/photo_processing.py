@@ -40,3 +40,4 @@ def compress_photo(photo):
 
 def photo_url(photo_id) -> str:
     return url_for('static', filename=f'waste_photos/{photo_id}')
+

@@ -107,3 +107,4 @@ class Trip(db.Model):
 @event.listens_for(Trip.collections, 'remove')
 def destroy_cache(target, value, initiator):
     target.collection_ordering = None
+

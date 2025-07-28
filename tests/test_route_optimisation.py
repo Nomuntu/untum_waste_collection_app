@@ -32,3 +32,4 @@ def test_optimisation_caching(testapp, db):
     trip.collections = []
     db.session.commit()
     assert trip.collection_ordering is None
+

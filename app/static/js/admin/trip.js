@@ -177,3 +177,4 @@ deleteTripButton.on('click', _ => {
         location.href = '/admin'
     })
 })
+

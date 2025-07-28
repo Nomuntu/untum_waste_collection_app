@@ -38,3 +38,4 @@ def generate_sms_code() -> str:
         code += str(randrange(0, 10))
 
     return code
+

@@ -834,3 +834,4 @@ def schedule_trip(trip_id):
 __all__ = ['create_app', 'db', 'migrate']
 
 
+

@@ -12,3 +12,4 @@ function createRow(rowId, bagSize, material, numBags, canDelete = true) {
         </tr>`)
     $(`#delete_row_${rowId}`).click(_ => deleteRow(rowId))
 }
+

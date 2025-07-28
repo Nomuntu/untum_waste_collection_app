@@ -130,3 +130,4 @@ function registerPin(pin) {
 pins.forEach(registerPin)
 fitMapToMarkersBounds(Object.values(markerMap))
 
+

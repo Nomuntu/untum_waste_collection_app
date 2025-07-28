@@ -107,3 +107,4 @@ def test_mark_as_complete(testapp, request_model):
     testapp.get(f'/api/mark_as_complete/{request_model.id}')
     assert request_model.status == CollectionRequestStatus.COMPLETED
     assert b'Collection has been completed' in testapp.get(f'/admin/view_request/{request_model.id}').data
+

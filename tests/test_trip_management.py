@@ -97,3 +97,4 @@ def test_schedule_trip(testapp, trip, driver):
 
     for req in trip.collections:
         assert req.status == CollectionRequestStatus.SCHEDULED
+
